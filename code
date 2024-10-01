@@ -1,0 +1,34 @@
+foods =[]
+prices = []
+
+while True:
+    total = 0
+    res= input('Do you want to use the shopping cart? (Y/N): ')
+    if res == '':
+        print("Please Input")
+    else:
+        if res.lower() == 'n':
+            print("bye bbg")
+            break
+
+        if res.lower()=='y':
+            n = int(input("Enter the number of items = "))
+            for i in range(0,n):
+               food = input('Enter the food item: ')
+               foods.append(food)
+               if food.isalpha() == True:
+                   price=(input(f'Enter the price of {food}: '))
+                   prices.append(price)
+                   if price.isdigit()==True:
+                      for food in foods:
+                        print(f'The price of {food} is {price}Rs')
+                   else:
+                        print('Invalid Price')
+               else:
+                print("invalid Input")
+            print('YOUR CART')
+            for j in range(0,n):
+                print(foods[j],end=' ')
+                total += int(prices[j])
+                print(prices[j])
+            print(f'Your total cost is {total}')
